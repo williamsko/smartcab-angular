@@ -1,0 +1,247 @@
+<app-menubar></app-menubar>
+<!-- main-sidebar -->
+
+<!-- main-content -->
+<div class="main-content app-content">
+  <!-- main-header -->
+  <app-top-menu></app-top-menu>
+  <!-- /main-header -->
+
+  <!-- container -->
+  <div class="container-fluid">
+    <app-breadcrumb
+      [agent]="agent"
+      [title]="title"
+      [subtitle]="subtitle"
+    ></app-breadcrumb>
+    <!-- row -->
+    <form method="POST">
+      <!-- row -->
+      <div class="row">
+        <div
+          *ngIf="shouldDisplayErrorMessage"
+          class="alert alert-danger mg-b-4 col-lg-6 col-md-12 mt-3"
+          role="alert"
+        >
+          <button
+            aria-label="Close"
+            class="close"
+            data-dismiss="alert"
+            type="button"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+          {{ errorMessage }}
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="">
+                <div class="col-xs-12 mb-4">
+                  <div>
+                    <h6 class="card-title mb-1">Information Client</h6>
+                    <p class="text-muted card-sub-title"></p>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">PRENOM</p>
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">NOM</p>
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">TELEPHONE</p>
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">ADRESSE</p>
+                        <input type="email" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">TYE PIECE</p>
+                        <select
+                          name="id_card_type"
+                          class="form-control SlectBox"
+                        >
+                          <!--placeholder-->
+                          <option title="Passport" value="PP">Passport</option>
+                          <option value="1">Carte d'identite</option>
+                          <option value="2">Permis de conduire</option>
+                          <option value="3">Carte consulaire</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">NUMERO PIECE</p>
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">DATE DELIVRANCE PIECE</p>
+                        <div class="input-group">
+                          <input
+                            class="form-control"
+                            formControlName="phoneNumber"
+                            type="text"
+                            placeholder=""
+                            name="dp"
+                            ngbDatepicker
+                            #d="ngbDatepicker"
+                          />
+                          <span class="input-group-btn">
+                            <button
+                              class="btn ripple btn-primary br-tl-0 br-bl-0"
+                              (click)="d.toggle()"
+                              type="button"
+                            >
+                              <i class="ti ti-calendar"></i>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">DATE EXPIRATION PIECE</p>
+                        <div class="input-group">
+                          <input
+                            class="form-control"
+                            formControlName="phoneNumber"
+                            type="text"
+                            placeholder=""
+                            name="dpe"
+                            ngbDatepicker
+                            #de="ngbDatepicker"
+                          />
+                          <span class="input-group-btn">
+                            <button
+                              class="btn ripple btn-primary br-tl-0 br-bl-0"
+                              (click)="de.toggle()"
+                              type="button"
+                            >
+                              <i class="ti ti-calendar"></i>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="">
+                <div class="col-xs-12 mb-4">
+                  <div>
+                    <h6 class="card-title mb-1">Information Véhicule</h6>
+                    <p class="text-muted card-sub-title"></p>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">NUMERO D'IMMATRICULATION</p>
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">CATEGORIE</p>
+                        <select
+                          name="id_card_type"
+                          class="form-control SlectBox"
+                        >
+                          <!--placeholder-->
+                          <option title="Passport" value="PP">Passport</option>
+                          <option value="1">Carte d'identite</option>
+                          <option value="2">Permis de conduire</option>
+                          <option value="3">Carte consulaire</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">MARQUE</p>
+                        <select
+                          name="id_card_type"
+                          class="form-control SlectBox"
+                        >
+                          <!--placeholder-->
+                          <option title="Passport" value="PP">Passport</option>
+                          <option value="1">Carte d'identite</option>
+                          <option value="2">Permis de conduire</option>
+                          <option value="3">Carte consulaire</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">MODELE</p>
+                        <select
+                          name="id_card_type"
+                          class="form-control SlectBox"
+                        >
+                          <!--placeholder-->
+                          <option title="Passport" value="PP">Passport</option>
+                          <option value="1">Carte d'identite</option>
+                          <option value="2">Permis de conduire</option>
+                          <option value="3">Carte consulaire</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">ANNEE</p>
+                        <select
+                          name="id_card_type"
+                          class="form-control SlectBox"
+                        >
+                          <!--placeholder-->
+                          <option title="Passport" value="PP">Passport</option>
+                          <option value="1">Carte d'identite</option>
+                          <option value="2">Permis de conduire</option>
+                          <option value="3">Carte consulaire</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mg-t-30 ">
+                        <button class="btn btn-primary pd-x-20 pull-right" type="submit">
+                          Enrégistrer
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /row -->
+    </form>
+    <!-- row -->
+  </div>
+  <!-- /conatiner -->
+</div>
+<!-- /main-content -->

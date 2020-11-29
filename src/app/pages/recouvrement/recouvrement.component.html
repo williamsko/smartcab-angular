@@ -1,0 +1,165 @@
+<app-menubar></app-menubar>
+<!-- main-sidebar -->
+
+<!-- main-content -->
+<div class="main-content app-content">
+  <!-- main-header -->
+  <app-top-menu></app-top-menu>
+  <!-- /main-header -->
+
+  <!-- container -->
+  <div class="container-fluid">
+    <!-- breadcrumb -->
+    <app-breadcrumb
+      [agent]="agent"
+      [title]="title"
+      [subtitle]="subtitle"
+    ></app-breadcrumb>
+    <!-- breadcrumb -->
+
+    <!-- row -->
+    <div class="row row-sm">
+      <div class="d-flex align-items-end flex-wrap">
+        <p class="text-muted mb-4 hover-cursor">Aujourd'hui</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div>
+              <h6 class="card-title mb-1">Immatriculation du véhicule</h6>
+              <p class="text-muted card-sub-title">
+                Veuillez remplir les champs ci dessous pour procéder au
+                recouvrement
+              </p>
+            </div>
+
+            <form [formGroup]="searchAccountForm" (ngSubmit)="searchAccount()">
+              <div class="row">
+                <div class="col-lg-6 col-md-12">
+                  <div class="input-group">
+                    <input
+                      class="form-control"
+                      formControlName="phoneNumber"
+                      type="text"
+                      placeholder=""
+                    />
+                    <span class="input-group-btn">
+                      <button
+                        class="btn ripple btn-primary br-tl-0 br-bl-0"
+                        type="submit"
+                      >
+                        RECHERCHER
+                      </button>
+                    </span>
+                  </div>
+                  <div
+                    *ngIf="shouldDisplayErrorMessage"
+                    class="alert alert-danger mg-b-4 col-lg-6 col-md-12 mt-3"
+                    role="alert"
+                  >
+                    <button
+                      aria-label="Close"
+                      class="close"
+                      data-dismiss="alert"
+                      type="button"
+                    >
+                      <span aria-hidden="true">×</span>
+                    </button>
+                    {{ errorMessage }}
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="searchResult" class="row col-lg-12 col-md-12">
+        <div class="col-lg-6 col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="row mg-t-0">
+                <div class="col-md">
+                  <label class="tx-gray-600">VEHICULE</label>
+                  <div class="billed-to mg-b-10">
+                    <p>Modéle : Toyota</p>
+                    <p>Immatriculation : {{ phoneNumber }}</p>
+                  </div>
+                  <label class="tx-gray-600 mt-4">PROPRIETAIRE</label>
+                  <div class="billed-to">
+                    <p>{{ firstName }} {{ lastName }}</p>
+                    <p>
+                      {{ address }}<br />
+                      Tel: {{ phoneNumber }}
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <label class="tx-gray-600"></label>
+                  <p class="invoice-info-row">
+                    <span>Date</span> <span></span>
+                  </p>
+                  <p class="invoice-info-row">
+                    <span>Code retrait</span> <span>xxxx</span>
+                  </p>
+                  <p class="invoice-info-row">
+                    <span>Montant</span> <span>5000</span>
+                  </p>
+                  <p class="invoice-info-row">
+                    <span>Frais</span> <span>0</span>
+                  </p>
+                  <p class="invoice-info-row">
+                    <span>Total</span> <span>0</span>
+                  </p>
+                  <p class="invoice-info-row">
+                    <span>Montant à payer</span> <span>4000</span>
+                  </p>
+                </div>
+              </div>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <form [formGroup]="recouvrementForm" (ngSubmit)="doRecouvrement()">
+            <!-- row -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="">
+                      <div class="col-xs-12 mb-4">
+                        <div>
+                          <h6 class="card-title mb-1">Paiement</h6>
+                          <p class="text-muted card-sub-title mt-2"></p>
+                        </div>
+                        <div class="row col-md-12 col-xs-12">
+                          <p class="mg-b-10">Montant</p>
+                          <input
+                            type="text"
+                            class="form-control mb-4"
+                            placeholder=""
+                            formControlName="amount"
+                          />
+
+                          <button class="btn btn-primary pd-x-20" type="submit">
+                            Valider
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mg-t-30"></div>
+            <!-- /row -->
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- COL-END -->
+  </div>
+</div>

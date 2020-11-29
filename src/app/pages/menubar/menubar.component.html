@@ -1,0 +1,36 @@
+<aside class="app-sidebar sidebar-scroll">
+  <div class="main-sidebar-header"></div>
+  <div class="main-sidebar-body circle-animation">
+    <ul class="side-menu circle">
+      <li><h3 class="">Tableau de bord</h3></li>
+      <li class="slide">
+        <a class="side-menu__item" [routerLink]="['/home']"
+          ><i class="side-menu__icon ti-desktop"></i
+          ><span class="side-menu__label">Tableau de Bord</span></a
+        >
+      </li>
+      <li><h3>Operation</h3></li>
+      <li class="slide">
+        <a class="side-menu__item" [routerLink]="['/new-vehicle']">
+          <i class="side-menu__icon ti-id-badge menu-icons"></i
+          ><span class="side-menu__label">Nouveau taxi</span
+          ><i class="ti-angle-right"></i>
+        </a>
+      </li>
+      <li class="slide">
+        <a class="side-menu__item" [routerLink]="['/recouvrement']">
+          <i class="side-menu__icon ti-email menu-icons"></i
+          ><span class="side-menu__label">Recouvrement</span
+          ><i class="ti-angle-right"></i>
+        </a>
+      </li>
+      <li class="slide">
+        <a class="side-menu__item" [routerLink]="['/history']">
+          <i class="side-menu__icon ti-alarm-clock menu-icons"></i
+          ><span class="side-menu__label">Historique</span
+          ><i class="ti-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>

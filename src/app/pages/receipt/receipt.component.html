@@ -1,0 +1,138 @@
+<app-menubar></app-menubar>
+
+<div class="main-content app-content">
+  <div class="container-fluid">
+    <app-top-menu></app-top-menu>
+
+    <div class="breadcrumb-header justify-content-between">
+      <div class="right-content">
+        <h4 class="content-title mb-2">Reçu de paiement</h4>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="invoice-header">
+          <h1 class="invoice-title">Recouvrement # numero_transation</h1>
+          <div lass="billed-from">
+            <p>Date : {{ getCurrentDate() }}<br /></p>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row mg-t-10 mg-b-20">
+          <div class="col-md">
+            <div
+              class="d-flex flex-row justify-content-between mg-b-10 rpt_row"
+            >
+              <div class="pd-0" style="width: 50%">
+                <div class="billed-from mg-b-0">
+                  <img
+                    src="assets/img/monamon.png"
+                    style="width: 240px"
+                    alt=""
+                  />
+                  <p>
+                    Mon Na Mon S.A.<br />
+                    Rua Angola N. 8A<br />
+                    Tel: +245 955150343<br />
+                    NIF: 510116370<br />
+                    contact@monnamon.com
+                  </p>
+                </div>
+                <!-- billed-from -->
+              </div>
+              <div class="pd-0" style="width: 50%">
+                <div class="billed-from mg-b-0">
+                  <img
+                    src="assets/img/monamon.png"
+                    style="width: 240px"
+                    alt=""
+                  />
+                  <p>
+                    {{ agent.entity.brandName }}<br />
+                    {{ agent.entity.country }}<br />
+                    Service client +245955651769
+                  </p>
+                </div>
+                <!-- billed-from -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="row mg-t-0 rpt_row"
+          style="padding-left: 15px; padding-right: 15px"
+        >
+          <div class="pd-0" style="width: 50%">
+            <label class="tx-gray-600">Client</label>
+            <div class="billed-to mg-b-10">
+              <p>{{ customer.firstName }} {{ customer.lastName }}</p>
+              <p>
+                address<br />
+                Tel: {{ customer.address }}
+              </p>
+            </div>
+            <label class="tx-gray-600">Entreprise</label>
+            <div class="billed-to">
+              <p>SmartCab</p>
+              <p>Tel: 00000000</p>
+            </div>
+          </div>
+          <div class="pd-0" style="width: 50%">
+            <label class="tx-gray-600"></label>
+            <p class="invoice-info-row">
+              <span>Date</span> {{ getCurrentDate() }}
+            </p>
+            <p class="invoice-info-row">
+              <span>Code transaction</span>
+              <span>{{ data.transaction.code }}</span>
+            </p>
+            <p class="invoice-info-row">
+              <span>Montant</span>
+              <span>{{ data.transaction.amount }}</span>
+            </p>
+
+            <p class="invoice-info-row">
+              <span>Total</span>
+              <span>{{ data.transaction.paid_amount }}</span>
+            </p>
+          </div>
+        </div>
+        <hr />
+        <div class="row mg-t-10 mg-b-80 col-lg-12">
+          <div class="billed-from mg-b-0 col-lg-6">
+            <p>Signature Client : <br /></p>
+          </div>
+          <div class="billed-from mg-b-0 col-lg-6">
+            <p>Signature Agent : <br /></p>
+          </div>
+        </div>
+        <hr />
+        <div class="mg-b-20">
+          <p style="font-size: 10px">
+            This payment order is subject to the company’s T&Cs that can be
+            found on the Legal and Compliance page at: www.smallworldfs.com. LCC
+            complies with all relevant data protection legislation in relation
+            to data storage and information storing. Disclosures will only be
+            made to the relevant authorities. Should you wish to complain, you
+            must contact us within 180 days from the date the order was placed,
+            producing this receipt. This receipt is not valid unless signed by
+            an LCC agent or employee, or sent by LCC email. FRAUD WARNING: Do
+            not dispatch money to obtain a loan or a credit card; Do not send
+            money to claim lottery and/or contest winnings, or in the certainty
+            of giving bribes or obtaining monetary benefits; Do not forward
+            money to an anonymous or unfamiliar person; Do not disclose any
+            transaction details to a third party. FRAUD WARNING: Do not send
+            money to obtain a loan or a credit card; Do not send money to claim
+            lottery and/or contest winnings, or in the certainty of giving
+            bribes or obtaining monetary benefits; Do not forward money to an
+            anonymous or unfamiliar person; Do not disclose any transaction
+            details to a third party. For more information visit
+            www.monnamon.com
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

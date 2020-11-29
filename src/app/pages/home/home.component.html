@@ -1,0 +1,132 @@
+<app-menubar></app-menubar>
+<!-- main-sidebar -->
+
+<!-- main-content -->
+<div class="main-content app-content">
+  <!-- main-header -->
+  <app-top-menu></app-top-menu>
+  <!-- /main-header -->
+
+  <!-- container -->
+  <div class="container-fluid">
+    <!-- breadcrumb -->
+    <app-breadcrumb [agent]="agent" [title]="title" [subtitle]="subtitle"></app-breadcrumb>
+    <!-- breadcrumb -->
+
+    <!-- row -->
+    <div class="row row-sm">
+      <div class="col-md-12 col-xl-4 col-lg-12">
+        <div class="card overflow-hidden recent-operations-card">
+          <div class="card-body p-0">
+            <div class="p-3 pb-0">
+              <div class="d-flex justify-content-between">
+                <h4 class="card-title mg-b-10">Aperçu des comptes</h4>
+                <i class="mdi mdi-dots-horizontal text-gray"></i>
+              </div>
+              <p class="tx-12 tx-gray-500 mb-0">
+                situation de vos différents comptes
+              </p>
+            </div>
+            <div class="transcation-scroll">
+              <ul class="list-unstyled mg-b-0 mt-2">
+                <li class="list-item pl-3 pr-3 mb-0 pb-3">
+                  <div class="media align-items-center">
+                    <div
+                      class="wd-40 ht-40 bg-orange-transparent tx-orange rounded-circle align-items-center justify-content-center d-none d-sm-flex"
+                    >
+                      <i class="cf cf-bt wd-20 ht-20 text-center tx-20"></i>
+                    </div>
+                    <div class="media-body mg-sm-l-15">
+                      <p class="tx-medium mg-b-3">Solde actuel</p>
+                    </div>
+                  </div>
+                  <div class="text-right ml-auto" *ngIf="agent.balance">
+                    <p class="mg-b-3 font-weight-semibold">
+                      {{ agent.balance.balance }} XOF
+                    </p>
+                  </div>
+                </li>
+                <li class="list-item mb-0 pl-3 pr-3 pb-3">
+                  <div class="media align-items-center">
+                    <div
+                      class="wd-40 ht-40 bg-teal-transparent tx-teal rounded-circle align-items-center justify-content-center d-none d-sm-flex"
+                    >
+                      <i class="cf cf-lt wd-20 ht-20 text-center tx-16"></i>
+                    </div>
+                    <div class="media-body mg-sm-l-15">
+                      <p class="tx-medium mg-b-3">Solde IBAN</p>
+                    </div>
+                  </div>
+                  <div class="text-right ml-auto">
+                    <p class="mg-b-3 font-weight-semibold">0 XOF</p>
+                  </div>
+                </li>
+                <li class="list-item mb-0 pl-3 pr-3 pb-3">
+                  <div class="media align-items-center">
+                    <div
+                      class="wd-40 ht-40 bg-danger-transparent rounded-circle align-items-center justify-content-center d-none d-sm-flex"
+                    >
+                      <i class="cf cf-et wd-20 ht-20 text-danger tx-20"></i>
+                    </div>
+                    <div class="media-body mg-sm-l-15">
+                      <p class="tx-medium mg-b-3">Montant commission</p>
+                    </div>
+                  </div>
+                  <div class="text-right ml-auto" *ngIf="agent.balance">
+                    <p class="mg-b-3 font-weight-semibold">
+                      {{ agent.balance.commission }} XOF
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-8 col-lg-12">
+        <div class="row row-sm">
+          <div class="col-lg-12">
+            <div class="card overflow-hidden">
+              <div class="card-body">
+                <div class="">
+                  <div class="d-flex justify-content-between">
+                    <h4 class="card-title mg-b-10">5 Dernieres transactions</h4>
+                    <i class="mdi mdi-dots-horizontal text-gray"></i>
+                  </div>
+                  <p class="tx-12 tx-gray-500 mb-2"></p>
+                </div>
+                <div class="table-responsive market-values">
+                  <table
+                    class="table table-bordered table-hover table-striped text-nowrap mb-0 tx-13"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Réference</th>
+                        <th>Client</th>
+                        <th>Montant</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        class="border-bottom"
+                        *ngFor="let transaction of transactions"
+                      >
+                        <td>{{ transaction.number }}</td>
+                        <td>{{ transaction.source }}</td>
+                        <td>{{ transaction.amount }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- row -->
+  </div>
+  <!-- /conatiner -->
+</div>
+<!-- /main-content -->

@@ -1,0 +1,82 @@
+<div class="invoice-header">
+  <h1 class="invoice-title">{{ title_invoice }} # {{ transaction.transaction_number }}</h1>
+  <div class="billed-from">
+      <p>{% localize on %}{% now "DATE_FORMAT{% endlocalize %}<br>
+  </div><!-- billed-from -->
+</div><!-- invoice-header -->
+<div class="row mg-t-10 mg-b-20">
+  <div class="col-md">
+      <div class="d-flex flex-row justify-content-between mg-b-10 rpt_row">
+          <div class="pd-0" style="width: 50%;">
+              <div class="billed-from mg-b-0">
+                  <img src='assets/img/monamon.png' style="width: 240px;">
+                  <p>Mon Na Mon S.A.<br>
+                      Rua Angola N. 8A<br>
+                      Tel: +245 955150343<br>
+                      NIF: 510116370<br>
+                      contact@monnamon.com</p>
+              </div><!-- billed-from -->
+          </div>
+          <div class="pd-0" style="width: 50%;">
+              <div class="billed-from mg-b-0">
+                  <img src='img/brand/monamon1.png' style="width: 240px;">
+                  <p>{{ transaction.payer.brand_name }}<br>
+                  Guinée Bissau<br>
+                  Service client +245955651769</p>
+              </div><!-- billed-from -->
+          </div>
+      </div>
+  </div>
+</div>
+<div class="row mg-t-0 rpt_row" style="padding-left:15px; padding-right:15px">
+  <div class="pd-0" style="width: 50%;">
+      <label class="tx-gray-600">Beneficiaire</label>
+      <div class="billed-to  mg-b-10">
+          <p>{{ transaction.destination_content_object.first_name}} {{ transaction.destination_content_object.last_name}}</p>
+          <p>{{ transaction.destination_content_object.address}}<br>
+          Tel: {{ transaction.destination_content_object.phone_number}}</p>
+      </div>
+      <label class="tx-gray-600">Envoyeur</label>
+      <div class="billed-to">
+          <p>{{ transaction.source_content_object.first_name}} {{ transaction.source_content_object.last_name}}</p>
+          <p>{{ transaction.source_content_object.address}}<br>
+          Tel: {{ transaction.source_content_object.phone_number}}</p>
+      </div>
+  </div>
+  <div class="pd-0" style="width: 50%;">
+      <label class="tx-gray-600"></label>
+      <p class="invoice-info-row"><span>Date</span> <span></span></p>
+      <p class="invoice-info-row"><span>Code retrait</span> <span>{% t_format_code_tt transaction.receipt_code %}</span></p>
+      <p class="invoice-info-row"><span>Montant</span> <span>{% t_format_number transaction.amount %} {{ transaction.destination_currency }}</span></p>
+      <p class="invoice-info-row"><span>Frais</span> <span>{% t_format_number transaction.fee %} {{ transaction.destination_currency }}</span></p>
+      <p class="invoice-info-row"><span>Total</span> <span>{% t_format_number transaction.paid_amount %} {{ transaction.destination_currency }}</span></p>
+      <p class="invoice-info-row"><span>Taux</span> <span>{% t_format_number transaction.parity %}</span></p>
+      <p class="invoice-info-row"><span>Montant à payer</span> <span>{% t_format_number transaction.paid_amount %} {{ transaction.destination_currency }}</span></p>
+  </div>
+</div>
+<hr/>
+<div class="row mg-t-10 mg-b-20">
+  <div class="col-xs">
+      <div class="d-flex flex-row justify-content-between mg-b-10 rpt_row">
+          <div class="pd-0 flex-fill">
+              <div class="billed-from mg-b-0">
+                  <p>envoyeur signature : <br>
+              </div><!-- billed-from -->
+          </div>
+          <div class="pd-0 flex-fill">
+              <div class="billed-from mg-b-0">
+                  <p>operateur signature ( agent {{ transaction.agent.code }} ) : <p>
+              </div><!-- billed-from -->
+          </div>
+      </div>
+  </div>
+</div>
+<hr/>
+<div class="mg-b-20">
+  <p style="font-size: 10px;">
+      {% blocktrans %}
+      This payment order is subject to the company’s T&Cs that can be found on the Legal and Compliance page at: www.smallworldfs.com. LCC complies with all relevant data protection legislation in relation to data storage and information storing. Disclosures will only be made to the relevant authorities. Should you wish to complain, you must contact us within 180 days from the date the order was placed, producing this receipt. This receipt is not valid unless signed by an LCC agent or employee, or sent by LCC email. FRAUD WARNING: Do not dispatch money to obtain a loan or a credit card; Do not send money to claim lottery and/or contest winnings, or in the certainty of giving bribes or obtaining monetary benefits; Do not forward money to an anonymous or unfamiliar person; Do not disclose any transaction details to a third party.
+FRAUD WARNING: Do not send money to obtain a loan or a credit card; Do not send money to claim lottery and/or contest winnings, or in the certainty of giving bribes or obtaining monetary benefits; Do not forward money to an anonymous or unfamiliar person; Do not disclose any transaction details to a third party. For more information visit www.monnamon.com
+      {% endblocktrans %}
+  </p>
+</div>

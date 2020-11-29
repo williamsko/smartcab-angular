@@ -1,0 +1,74 @@
+<div class="my-auto page page-h">
+  <div class="main-signin-wrapper">
+    <div class="main-card-signin d-md-flex wd-100p">
+      <div
+        class="wd-md-50p login d-none d-md-block page-signin-style p-5 text-white"
+      >
+        <div class="my-auto authentication-pages">
+          <div>
+            <img src="assets/img/monnamonv2.png" class="m-0 mb-4" alt="logo" />
+            <h5 class="mb-4">Plateforme de transfer d'argent</h5>
+            <p class="mb-5">
+              Envoyez et recevez de l’argent au local et à l’internationalchez
+              tous les points agréés de Monamon, sur internet et via téléphone
+              mobile.
+            </p>
+            <p class="mb-5">
+              Faites vos retraits depuis l’étranger dans votre compte domicilié
+              dans votre pays d’origine et gérer vos dépenses depuis votre
+              mobile ou via l’interface web.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="p-5 wd-md-50p">
+        <div class="main-signin-header">
+          <h2>SMARTCAB</h2>
+          <h4>Veuillez remplir les champs ci-dessous pour vous connecter</h4>
+          <div
+            *ngIf="shouldDisplayErrorMessage"
+            class="alert alert-danger mg-b-4"
+            role="alert"
+          >
+            <button
+              aria-label="Close"
+              class="close"
+              data-dismiss="alert"
+              type="button"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+            {{ errorMessage }}
+          </div>
+          <form [formGroup]="form" (ngSubmit)="signin()">
+            <div class="form-group">
+              <label>Identifiant</label
+              ><input
+                name="username"
+                class="form-control"
+                placeholder="Identifiant"
+                type="text"
+                formControlName="username"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Mot de passe</label>
+              <input
+                name="password"
+                class="form-control"
+                placeholder="Mot de passe"
+                formControlName="password"
+                type="password"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-main-primary btn-block">
+              Se connecter
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
