@@ -18,17 +18,13 @@
     <!-- breadcrumb -->
 
     <!-- row -->
-    <div class="row row-sm">
-      <div class="d-flex align-items-end flex-wrap">
-        <p class="text-muted mb-4 hover-cursor">Aujourd'hui</p>
-      </div>
-    </div>
+   
     <div class="row">
       <div class="col-lg-12 col-md-12">
         <div class="card">
           <div class="card-body">
             <div>
-              <h6 class="card-title mb-1">Immatriculation du véhicule</h6>
+              <h6 class="card-title mb-1">Numero d'immatriculation du véhicule</h6>
               <p class="text-muted card-sub-title">
                 Veuillez remplir les champs ci dessous pour procéder au
                 recouvrement
@@ -76,51 +72,7 @@
         </div>
       </div>
       <div *ngIf="searchResult" class="row col-lg-12 col-md-12">
-        <div class="col-lg-6 col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <div class="row mg-t-0">
-                <div class="col-md">
-                  <label class="tx-gray-600">VEHICULE</label>
-                  <div class="billed-to mg-b-10">
-                    <p>Modéle : Toyota</p>
-                    <p>Immatriculation : {{ phoneNumber }}</p>
-                  </div>
-                  <label class="tx-gray-600 mt-4">PROPRIETAIRE</label>
-                  <div class="billed-to">
-                    <p>{{ firstName }} {{ lastName }}</p>
-                    <p>
-                      {{ address }}<br />
-                      Tel: {{ phoneNumber }}
-                    </p>
-                  </div>
-                </div>
-                <div class="col-md">
-                  <label class="tx-gray-600"></label>
-                  <p class="invoice-info-row">
-                    <span>Date</span> <span></span>
-                  </p>
-                  <p class="invoice-info-row">
-                    <span>Code retrait</span> <span>xxxx</span>
-                  </p>
-                  <p class="invoice-info-row">
-                    <span>Montant</span> <span>5000</span>
-                  </p>
-                  <p class="invoice-info-row">
-                    <span>Frais</span> <span>0</span>
-                  </p>
-                  <p class="invoice-info-row">
-                    <span>Total</span> <span>0</span>
-                  </p>
-                  <p class="invoice-info-row">
-                    <span>Montant à payer</span> <span>4000</span>
-                  </p>
-                </div>
-              </div>
-              <hr />
-            </div>
-          </div>
-        </div>
+       <app-recouvrement-terrain class="row col-lg-6 col-md-6"></app-recouvrement-terrain>
         <div class="col-lg-6 col-md-6">
           <form [formGroup]="recouvrementForm" (ngSubmit)="doRecouvrement()">
             <!-- row -->

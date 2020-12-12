@@ -15,7 +15,7 @@
       [subtitle]="subtitle"
     ></app-breadcrumb>
     <!-- row -->
-    <form method="POST">
+    <form [formGroup]="form">
       <!-- row -->
       <div class="row">
         <div
@@ -46,13 +46,21 @@
                     <div class="col-md-6 col-xs-12">
                       <div class="mb-4">
                         <p class="mg-b-10">PRENOM</p>
-                        <input type="text" class="form-control" />
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="firstName"
+                        />
                       </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
                       <div class="mb-4">
                         <p class="mg-b-10">NOM</p>
-                        <input type="text" class="form-control" />
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="lastName"
+                        />
                       </div>
                     </div>
 
@@ -86,7 +94,11 @@
                     <div class="col-md-6 col-xs-12">
                       <div class="mb-4">
                         <p class="mg-b-10">NUMERO PIECE</p>
-                        <input type="text" class="form-control" />
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="numeroPiece"
+                        />
                       </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -95,7 +107,7 @@
                         <div class="input-group">
                           <input
                             class="form-control"
-                            formControlName="phoneNumber"
+                            formControlName="dateDelivrancePiece"
                             type="text"
                             placeholder=""
                             name="dp"
@@ -120,7 +132,7 @@
                         <div class="input-group">
                           <input
                             class="form-control"
-                            formControlName="phoneNumber"
+                            formControlName="dateExpirationPiece"
                             type="text"
                             placeholder=""
                             name="dpe"
@@ -161,6 +173,19 @@
                         <input type="text" class="form-control" />
                       </div>
                     </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">NUMERO CARTE GRISE</p>
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">NUMERO LICENCE</p>
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+
                     <div class="col-md-6 col-xs-12">
                       <div class="mb-4">
                         <p class="mg-b-10">CATEGORIE</p>
@@ -223,9 +248,172 @@
                         </select>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="">
+                <div class="col-xs-12 mb-4">
+                  <div>
+                    <h6 class="card-title mb-1">Information Taxi</h6>
+                    <p class="text-muted card-sub-title"></p>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">STATUT TAXI</p>
+                        <select
+                          formControlName="username"
+                          class="form-control SlectBox"
+                          formControlName="statutClient"
+                        >
+                          <!--placeholder-->
+                          <option value="CLIENT" selected>Client</option>
+                          <option value="PROSPECT">Prospect</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12" *ngIf="statusClient">
+                      <div class="mb-4">
+                        <p class="mg-b-10">CODE ASSURANCE</p>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="codeAssurance"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12" *ngIf="statusClient">
+                      <div class="mb-4">
+                        <p class="mg-b-10">DUREE ASSURANCE</p>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="dureeAssurance"
+                        />
+                      </div>
+                    </div>
                     <div class="col-md-6 col-xs-12">
-                      <div class="mg-t-30 ">
-                        <button class="btn btn-primary pd-x-20 pull-right" type="submit">
+                      <div class="mb-4">
+                        <p class="mg-b-10">DATE EXPIRATION ASSURANCE</p>
+                        <div class="input-group">
+                          <input
+                            class="form-control"
+                            formControlName="dateExpirationAssurance"
+                            type="text"
+                            placeholder=""
+                            name="dpe"
+                            ngbDatepicker
+                            #dea="ngbDatepicker"
+                          />
+                          <span class="input-group-btn">
+                            <button
+                              class="btn ripple btn-primary br-tl-0 br-bl-0"
+                              (click)="dea.toggle()"
+                              type="button"
+                            >
+                              <i class="ti ti-calendar"></i>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="">
+                <div class="col-xs-12 mb-4">
+                  <div>
+                    <h6 class="card-title mb-1">Information Carte carburant</h6>
+                    <p class="text-muted card-sub-title"></p>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                      <div class="mb-4">
+                        <p class="mg-b-10">STATUT CARTE CARBURANT</p>
+                        <select
+                          name="id_card_type"
+                          class="form-control SlectBox"
+                          formControlName="statutCarteCarburant"
+                        >
+                          <!--placeholder-->
+                          <option value="REMIS" selected>Remis</option>
+                          <option value="PAS_ENCORE">Pas encore</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12" *ngIf="statusCarteCarburant">
+                      <div class="mb-4">
+                        <p class="mg-b-10">NUMERO CARTE CARBURANT</p>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="numeroCarteCarburant"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12" *ngIf="statusCarteCarburant">
+                      <div class="mb-4">
+                        <p class="mg-b-10">CODE CARTE CARBURANT</p>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="codeCarteCarburant"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12" *ngIf="statusCarteCarburant">
+                      <div class="mb-4">
+                        <p class="mg-b-10">MONTANT DOTATION</p>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="montantDotationCarburant"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12" *ngIf="statusCarteCarburant">
+                      <div class="mb-4">
+                        <p class="mg-b-10">DATE DELIVRANCE</p>
+                        <div class="input-group">
+                          <input
+                            class="form-control"
+                            formControlName="dateDelivranceCarteCarburant"
+                            type="text"
+                            placeholder=""
+                            name="dpe"
+                            ngbDatepicker
+                            #dec="ngbDatepicker"
+                          />
+                          <span class="input-group-btn">
+                            <button
+                              class="btn ripple btn-primary br-tl-0 br-bl-0"
+                              (click)="dec.toggle()"
+                              type="button"
+                            >
+                              <i class="ti ti-calendar"></i>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="mg-t-30">
+                        <button
+                          class="btn btn-primary pd-x-20 pull-right"
+                          type="submit"
+                        >
                           Enrégistrer
                         </button>
                       </div>

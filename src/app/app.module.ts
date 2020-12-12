@@ -17,6 +17,10 @@ import { HistoriqueTransactionComponent } from './pages/historique-transaction/h
 import { TopMenuComponent } from './pages/top-menu/top-menu.component';
 import { NewVehicleComponent } from './pages/new-vehicle/new-vehicle.component';
 import { BreadcrumbComponent } from './pages/breadcrumb/breadcrumb.component';
+import { RecouvrementAssuranceComponent } from './pages/recouvrement/types-recouvrements/recouvrement-assurance/recouvrement-assurance.component';
+import { RecouvrementCarburantComponent } from './pages/recouvrement/types-recouvrements/recouvrement-carburant/recouvrement-carburant.component';
+import { RecouvrementRizComponent } from './pages/recouvrement/types-recouvrements/recouvrement-riz/recouvrement-riz.component';
+import { RecouvrementTerrainComponent } from './pages/recouvrement/types-recouvrements/recouvrement-terrain/recouvrement-terrain.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +33,10 @@ import { BreadcrumbComponent } from './pages/breadcrumb/breadcrumb.component';
     TopMenuComponent,
     NewVehicleComponent,
     BreadcrumbComponent,
+    RecouvrementAssuranceComponent,
+    RecouvrementCarburantComponent,
+    RecouvrementRizComponent,
+    RecouvrementTerrainComponent,
   ],
   imports: [
     BrowserModule,
